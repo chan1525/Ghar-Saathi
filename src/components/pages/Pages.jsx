@@ -8,6 +8,7 @@ import Pricing from "../pricing/Pricing"
 import Blog from "../blog/Blog"
 import Services from "../services/Services"
 import Contact from "../contact/Contact"
+// import Explore from "../explore/page/explore"
 
 const Pages = () => {
   return (
