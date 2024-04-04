@@ -1,0 +1,78 @@
+/* explore.module.css */
+
+.explore {
+  padding: 50px 0;
+}
+
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  height: 200px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.content {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.content span {
+  font-size: 1.5em;
+  color: white;
+}
+
+.content:hover {
+  transform: scale(1.05);
+}
+
+/* Background images for each box */
+.finance {
+  background-image: url('./images/finance.jpg');
+}
+
+.sites {
+  background-image: url('./images/sites.jpg');
+}
+
+.houses {
+  background-image: url('./images/houses.jpg');
+}
+
+.buildings {
+  background-image: url('./images/buildings.jpg');
+}
+
+.contractors {
+  background-image: url('./images/contracters.jpg');
+}
+
+.workers {
+  background-image: url('./images/workers.jpg');
+}
+
+.maintenance {
+  background-image: url('./images/maintainence.jpg');
+}
+
+.legal-team {
+  background-image: url('./images/legal.jpg');
+}
+
+.contact-us {
+  background-image: url('./images/contact.jpg');
+}
