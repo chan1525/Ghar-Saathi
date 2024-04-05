@@ -2,10 +2,11 @@ import React, { useState } from "react"
 import "./header.css"
 import { nav } from "../../data/Data"
 import { Link } from "react-router-dom"
+import { useHistory } from 'react-router-dom';
 
 const Header = () => {
   const [navList, setNavList] = useState(false)
-
+  const history = useHistory();
   return (
     <>
       <header>
@@ -26,8 +27,8 @@ const Header = () => {
             <h4>
               <span>2</span> My List
             </h4>
-            <button className='btn1'>
-              <i className='fa fa-sign-out'></i> Sign In
+            <button className='btn1' onClick={() => history.push('/login')}>
+              <i className='fa fa-sign-out'  ></i> Sign In
             </button>
           </div>
 
