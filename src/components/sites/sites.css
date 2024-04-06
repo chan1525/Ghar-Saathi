@@ -1,3 +1,33 @@
-*{
-    display: grid;
-}
+/* sites.css */
+
+.sites-container {
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .sites-heading {
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .sites-selectContainer {
+    margin-top: 2vh;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+  
+  .sites-label {
+    margin-left: 10px;
+  }
+  
+  .sites-list {
+    margin-top: 2vh;
+    list-style-type: none;
+    padding: 0;
+  }
+  

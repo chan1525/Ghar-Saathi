@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #f0f0f0; /* Light gray background */
+  }
+  
+  #header {
+    background-color: rgb(73, 236, 73); /* Light green color */
+    color: white;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  .header-container {
+    display: flex; /* Enable flexbox */
+    align-items: center; /* Vertically center elements */
+  }
+  
+  .emi-button {
+    background-color: #ff5454; /* Vibrant red color */
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    text-transform: uppercase; /* Capitalize button text */
+    margin-right: 10px; /* Position to the right of the header */
+  }
+  
+  .emi-button:hover {
+    background-color: #774d4d; /* Darker red on hover */
+  }
+  
+  .search-bar {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px 10px;
+  }
+  
+  .search-bar input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    flex: 1;
+    padding: 5px;
+  }
+  
+  .bank-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow boxes to wrap onto multiple lines if needed */
+    justify-content: space-around; /* Distribute boxes evenly with some space */
+  }
+  
+  .bank-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 25%; /* Adjusted width for a more responsive layout */
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.2s ease-in-out; /* Smooth hover animation */
+  }
+  
+  .bank-box:hover {
+    transform: scale(1.02); /* Slight zoom on hover */
+  }
+  
+  /* Button styles */
+  .bank-button {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .bank-button:hover {
+    background-color: rgb(73, 236, 73); /* Light green on hover */
+  }  
+  .bank-box img {
+    border-radius: 50%; /* Set border-radius to 50% for circular images */
+    width: 100%; /* Ensure image fills the container width */
+    object-fit: cover; /* Maintain aspect ratio and scale to fit */
+  }

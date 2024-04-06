@@ -10,6 +10,18 @@ const Explore = () => {
   const location = useLocation();
   const history = useHistory();
 var formData = location.state.state.formData;
+const handleFinClick = () => {
+  history.push('/finance'); // Navigate to EMI calculator route
+  };
+
+  const handleLegalClick = () => {
+    history.push('/legal'); // Navigate to EMI calculator route
+    };
+
+    const handleContractClick = () => {
+      history.push('/contractors'); // Navigate to EMI calculator route
+      };
+  
 
 // formData=formData.formData;
 // console.log(formData);
@@ -17,7 +29,7 @@ var formData = location.state.state.formData;
   return (
     <section className={styles.explore}>
       <div className={styles['explore-grid']}>
-        <div className={`${styles.box} ${styles.finance}`}>
+        <div className={`${styles.box} ${styles.finance}`}onClick={handleFinClick}>
           <div className={styles.content}>
             <span>Finance</span>
           </div>
@@ -37,14 +49,14 @@ var formData = location.state.state.formData;
             <span onClick={() => history.push('/buildings', { state: { formData } })}>Buildings</span>
           </div>
         </div>
-        <div className={`${styles.box} ${styles.contractors}`}>
+        <div className={`${styles.box} ${styles.contractors}`}onClick={handleContractClick}>
           <div className={styles.content}>
             <span>Contractors</span>
           </div>
         </div>
         <div className={`${styles.box} ${styles.workers}`}>
           <div className={styles.content}>
-            <span>Workers</span>
+            <span onClick={() => history.push('/labours', { state: { formData } })}>Workers</span>
           </div>
         </div>
         <div className={`${styles.box} ${styles.maintenance}`}>
@@ -52,14 +64,14 @@ var formData = location.state.state.formData;
             <span>Maintenance</span>
           </div>
         </div>
-        <div className={`${styles.box} ${styles['legal-team']}`}>
+        <div className={`${styles.box} ${styles['legal-team']}`}onClick={handleLegalClick}>
           <div className={styles.content}>
             <span>Legal Team</span>
           </div>
         </div>
         <div className={`${styles.box} ${styles['contact-us']}`}>
           <div className={styles.content}>
-            <span>Contact Us</span>
+            <span>Materials</span>
           </div>
         </div>
       </div>

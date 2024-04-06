@@ -1,9 +1,11 @@
+// Sites.js
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom'; 
 import DisplayList from './displaylist';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom';
-
+import './sites.css'; // Importing the CSS file
 
 function Sites({ history }) {
   const location = useLocation();
@@ -11,12 +13,10 @@ function Sites({ history }) {
   const [defaultUsername, setDefaultUsername] = useState('');
 
   useEffect(() => {
-   
       const initialUsername = location.state.state.formData.username;
       console.log(initialUsername);
       setDefaultUsername(initialUsername);
       fetchSites(initialUsername);
-    
   }, [location.state]);
 
   const handleUsernameChange = async (event) => {
@@ -39,23 +39,22 @@ function Sites({ history }) {
   };
 
   return (
-    <div style={{ marginTop: '2vh', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-    <h2 style={{ fontFamily: 'Arial, sans-serif', fontSize: '24px', fontWeight: 'bold', color: '#333' }}>See your sites near you</h2>
-    <div style={{ marginTop: '2vh', display: 'flex', justifyContent: 'flex-end', width: '100%' }}>
-      <label htmlFor="usernameSelect">Select Username:</label>
-      <select id="usernameSelect" value={defaultUsername} onChange={handleUsernameChange} style={{ marginLeft: '10px' }}>
-        <option value="">Select Username</option>
-        <option value="banglore">Bangalore</option>
-        <option value="mysore">Mysore</option>
-        <option value="shivamoga">Shivamoga</option>
-        <option value="belagavi">Belagavi</option>
-      </select>
+    <div className="sites-container"> {/* Adding a specific class */}
+      <h2 className="heading">See your sites near you</h2>
+      <div className="selectContainer">
+        <label className="label" htmlFor="usernameSelect">Select Loacation:</label>
+        <select id="usernameSelect" value={defaultUsername} onChange={handleUsernameChange}>
+          <option value="">Select Username</option>
+          <option value="banglore">Bangalore</option>
+          <option value="mysore">Mysore</option>
+          <option value="shivamoga">Shivamoga</option>
+          <option value="belagavi">Belagavi</option>
+        </select>
+      </div>
+      <ul className="list">
+        <DisplayList dataArray={siteData} />
+      </ul>
     </div>
-    <ul style={{ marginTop: '2vh', listStyleType: 'none', padding: 0 }}>
-      <DisplayList dataArray={siteData} />
-    </ul>
-  </div>
-  
   );
 }
 

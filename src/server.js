@@ -238,6 +238,26 @@ import('node-fetch').then(({ default: fetch }) => {
     //   console.log(data.features[0].properties.distance)
     //   return data.features[0].properties.distance;
     // }
+    app.post('/fetchlabours', async (req, res) => {
+        try {
+          const { username } = req.body;
+      console.log("Usererid",req.body);
+          // Fetch the array from the register table based on the username
+          const registerQuery = 'SELECT * FROM register WHERE username = $1';
+          const registerResult = await pool.query(registerQuery, [username]);
+        //   console.log("here",registerResult);
+          const arrayData = registerResult.rows[0].nearest_city;
+          console.log("aihdbiasdibaskdbisbd",arrayData);
+          // Fetch data from labours table based on array
+          const labourQuery = 'SELECT * FROM labours WHERE city_id = ANY($1::int[])';
+          const labourResult = await pool.query(labourQuery, [arrayData]);
+      
+          res.json({ success: true, data: labourResult.rows });
+        } catch (error) {
+          console.error('Error fetching data:', error);
+          res.status(500).json({ success: false, error: 'Error fetching data' });
+        }
+      })
     
     app.listen(port, () => {
       console.log(`Server is running on http://localhost:${port}`);

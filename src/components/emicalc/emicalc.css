@@ -1,0 +1,58 @@
+.App{
+    font-family: 'Times New Roman', Times, serif;
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 23%;
+    background-color: rgb(173, 244, 194);border-radius: 10px;
+    border: 1px dashed black;
+  }
+  
+  .box{
+    width: 96%;
+    margin-left: 10px;
+  }
+  
+  .title{
+    font-weight: 700;
+    margin-left: 10px;
+  }
+  
+  .slider{
+    width: 96%;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+  .labels{
+    display: flex;
+    justify-content: flex-start;
+    gap: 350px;
+    margin-left: 10px;
+  
+  }
+  
+  
+  .tenureContainer{
+    display: flex;
+    justify-content: flex-start;
+    gap: 48px;
+    margin-left: 10px;
+  }
+  
+  .tenure{
+    width: 15%;
+    height: 50px;
+    border: none;
+    border-radius: 100px;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    color:black;
+  }
+  
+  .selected{
+    background-color: #009ad6;
+    color: rgb(234, 231, 231);
+  }
