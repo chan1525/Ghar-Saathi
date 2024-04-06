@@ -2,8 +2,18 @@
 
 import React from 'react';
 import styles from './explore.module.css';
+import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom';
+
 
 const Explore = () => {
+  const location = useLocation();
+  const history = useHistory();
+var formData = location.state.state.formData;
+
+// formData=formData.formData;
+// console.log(formData);
+
   return (
     <section className={styles.explore}>
       <div className={styles['explore-grid']}>
@@ -14,7 +24,7 @@ const Explore = () => {
         </div>
         <div className={`${styles.box} ${styles.sites}`}>
           <div className={styles.content}>
-            <span>Sites</span>
+            <span onClick={() => history.push('/site', { state: { formData } })}>Sites</span>
           </div>
         </div>
         <div className={`${styles.box} ${styles.houses}`}>
@@ -24,7 +34,7 @@ const Explore = () => {
         </div>
         <div className={`${styles.box} ${styles.buildings}`}>
           <div className={styles.content}>
-            <span>Buildings</span>
+            <span onClick={() => history.push('/buildings', { state: { formData } })}>Buildings</span>
           </div>
         </div>
         <div className={`${styles.box} ${styles.contractors}`}>

@@ -10,7 +10,9 @@ import Services from "../services/Services"
 import Contact from "../contact/Contact"
 import Explore from "../explore/explore"
 import Login from "../signin/login"
-
+import SignUpForm from "../signin/signup"
+import Sites from "../sites/site"
+import Building from "../buildings/building"
 const Pages = () => {
   return (
     <>
@@ -25,6 +27,9 @@ const Pages = () => {
           <Route exact path='/explore' component={Explore} />
           <Route exact path='/contact' component={Contact} />
           <Route exact path='/login' component={Login} />
+          <Route exact path='/signup' component={SignUpForm} />
+          <Route exact path='/site' component={Sites} />
+          <Route exact path='/buildings' component={Building} />
         </Switch>
         <Footer />
       </Router>
