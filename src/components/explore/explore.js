@@ -71,7 +71,7 @@ const handleFinClick = () => {
         </div>
         <div className={`${styles.box} ${styles['contact-us']}`}>
           <div className={styles.content}>
-            <span>Materials</span>
+            <span onClick={() => history.push('/materials', { state: { formData } })}>Materials</span>
           </div>
         </div>
       </div>

@@ -18,6 +18,7 @@ import Finance from "../finance/fin"
 import Emicalc from "../emicalc/emicalc"
 import Legal from "../legal/legal"
 import Contractors from "../home/team/Team"
+import Materials from "../materials/materials"
 const Pages = () => {
   return (
     <>
@@ -40,6 +41,9 @@ const Pages = () => {
           <Route exact path='/emi-calculator' component={Emicalc}/>
           <Route exact path='/legal' component={Legal}/>
           <Route exact path='/contractors' component={Contractors}/>
+          
+          <Route exact path='/materials' component={Materials}/>
+
         </Switch>
         <Footer />
       </Router>

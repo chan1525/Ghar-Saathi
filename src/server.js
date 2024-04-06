@@ -17,7 +17,7 @@ import('node-fetch').then(({ default: fetch }) => {
       password: 'Chethan@1330',
       port: 5000, // Corrected port for PostgreSQL
     });
-    
+    app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
     async function calculateDistance(startLat, startLng, endLat, endLng) {
       const apiKey = 'f57d7533f6c9447f831b33ce0441ce69';
@@ -258,7 +258,28 @@ import('node-fetch').then(({ default: fetch }) => {
           res.status(500).json({ success: false, error: 'Error fetching data' });
         }
       })
-    
+      app.post('/fetchMaterials', async (req, res) => {
+        try {
+          const { username } = req.body;
+      
+          // Fetch nearest_city array based on username
+          const registerQuery = 'SELECT nearest_city FROM register WHERE username = $1';
+          const registerResult = await pool.query(registerQuery, [username]);
+          const nearestCities = registerResult.rows[0].nearest_city; // Assuming nearest_city is the correct field name
+      
+          // Fetch and sort materials data based on nearest_city array
+          const materialsQuery = 'SELECT * FROM material WHERE city_id = ANY($1) ORDER BY name ASC';
+          const materialsResult = await pool.query(materialsQuery, [nearestCities]);
+      
+          // Send sorted materials data to the client
+          console.log(materialsResult.rows);
+          res.json({ success: true, data: materialsResult.rows });
+        } catch (error) {
+          console.error('Error fetching materials:', error);
+          res.status(500).json({ success: false, error: 'Error fetching materials' });
+        }
+      });
+      
     app.listen(port, () => {
       console.log(`Server is running on http://localhost:${port}`);
     });
