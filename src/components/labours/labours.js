@@ -80,7 +80,7 @@ const Labour = () => {
   console.log(filteredLaboursData);
   return (
 <div style={{ marginTop: '2vh', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-  <h1 style={{ fontFamily: 'Arial, sans-serif', fontSize: '24px', fontWeight: 'bold', color: '#333' }}>Labours Data</h1>
+  <h1 style={{ fontFamily: 'Arial, sans-serif', fontSize: '24px', fontWeight: 'bold', color: '#333' }}>Labourer Teams</h1>
   <div style={{ marginTop: '2vh', display: 'flex', justifyContent: 'flex-end', width: '100%' }}>
     <label htmlFor="category">Select Category:</label>
     <select id="category" onChange={handleCategoryChange} style={{ marginLeft: '10px' }}>

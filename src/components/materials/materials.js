@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
+import './materials.css'
 
 // Define ImageDisplay component outside of Materials component
 const ImageDisplay = ({ imageData }) => {
@@ -60,18 +61,18 @@ const Materials = () => {
           </div>
         </div>
       </div>
-      <div className="row">
+      <div className="row" >
         {materialsData
           .filter(material => !selectedCategory || material.category_id === parseInt(selectedCategory))
           .map(material => (
             <div key={material.id} className="col-md-4 mb-2">
-              <div className="card h-100">
+              <div className="cardh-100">
                 <ImageDisplay imageData={material.image} />
-                <div className="card-body">
-                  <h5 className="card-title">{material.name}</h5>
-                  <p className="card-text">Price: {material.price}</p>
-                  <p className="card-text">Description: {material.description}</p>
-                  <button className="btn btn-primary">Add to Cart</button>
+                <div className="card-body" style={{flexDirection:'column'}}>
+                  <h5 className="card-title" style={{ flexGrow: 1 }}>{material.name}</h5>
+                  <p className="card-text" style={{ flexGrow: 1 }}>Price: {material.price}</p>
+                  <p className="card-text" style={{ flexGrow: 1 }}>Description: {material.description}</p>
+                  <button className="btn btn-primary" style={{ flexGrow: 1 }}>Add to Cart</button>
                 </div>
               </div>
             </div>

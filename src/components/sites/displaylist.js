@@ -27,7 +27,7 @@ function Display({ data, index }) {
               <div className="carousel-inner" style={{ height: '100%' }}>
                 {images.map((imageUrl, idx) => (
                   <div key={idx} className={`carousel-item ${idx === 0 ? 'active' : ''}`} style={{ height: '100%' }}>
-                    <img src={imageUrl} className="d-block w-100" alt={`Image ${idx}`} style={{ maxHeight: '70%', maxWidth: '100%', width: 'auto', height: 'auto', objectFit: 'cover' }} />
+                    <img src={imageUrl} className="d-block w-100" alt={`Image ${idx}`} style={{ maxHeight: '50%', maxWidth: '50%', width: '50%', height:'50%', objectFit: 'cover' }} />
                   </div>
                 ))}
               </div>

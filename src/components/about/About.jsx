@@ -11,10 +11,10 @@ const About = () => {
         <Back name='About Us' title='About Us - Who We Are?' cover={img} />
         <div className='container flex mtop'>
           <div className='left row'>
-            <Heading title='Our Agency Story' subtitle='Check out our company story and work process' />
+            <Heading title='Ghar Saathi' subtitle='Unlocking the door to your dream home' />
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+            <p>Our platform is dedicated to helping individuals navigate the complex process of constructing their dream homes, from start to finish. We provide a variety of services that cater to all their needs, whether it's finding the best interest rates on home loans, helping them locate the perfect site that meets their unique preferences, or providing contact details for trusted dealers.</p>
+            <p>Our commitment to excellence extends beyond home construction. We also offer a range of options for laborers, architects, and interior designers to showcase their skills and expertise to potential clients. By listing themselves on our platform, these professionals can expand their reach and connect with individuals in need of their services.</p>
             <button className='btn2'>More About Us</button>
           </div>
           <div className='right row'>

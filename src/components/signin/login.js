@@ -38,15 +38,14 @@ const Login = () => {
 
   if (loggedIn) {
     // Redirect to home page if logged in successfully
-    
     history.push('/explore', { state: { formData } });
   }
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
+    <div style={{ maxWidth: '400px', margin: '20px auto', padding: '20px', border: '1px solid #ccc', borderRadius: '5px', backgroundColor: '#f9f9f9', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)' }}>
+      <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Login</h2>
+      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
+        <div style={{ marginBottom: '10px' }}>
           <label>
             Username
             <input
@@ -55,10 +54,11 @@ const Login = () => {
               value={formData.username}
               onChange={handleChange}
               required
+              style={{ padding: '10px', marginBottom: '15px', border: '1px solid #ccc', borderRadius: '5px', fontSize: '16px', width: '100%' }}
             />
           </label>
         </div>
-        <div>
+        <div style={{ marginBottom: '10px' }}>
           <label>
             Password:
             <input
@@ -67,13 +67,14 @@ const Login = () => {
               value={formData.password}
               onChange={handleChange}
               required
+              style={{ padding: '10px', marginBottom: '15px', border: '1px solid #ccc', borderRadius: '5px', fontSize: '16px', width: '100%' }}
             />
           </label>
         </div>
-        {error && <p>{error}</p>}
-        <button type="submit">Login</button>
+        {error && <p style={{ color: 'red', marginTop: '10px' }}>{error}</p>}
+        <button type="submit" style={{ padding: '10px',marginBottom: '15px', backgroundColor: '#007bff', color: '#fff', border: 'none', borderRadius: '5px', cursor: 'pointer', fontSize: '16px', transition: 'background-color 0.3s', width: '100%' }}>Login</button>
       </form>
-      <p>Don't have an account? <button onClick={() => history.push('/signup')}>Sign Up</button></p>
+      <p style={{ textAlign: 'center', marginTop: '20px' }}>Don't have an account? <button onClick={() => history.push('/signup')} style={{ background: 'none', border: 'none', color: '#007bff', cursor: 'pointer', fontSize: '16px', transition: 'color 0.3s' }}>Sign Up</button></p>
     </div>
   );
 }

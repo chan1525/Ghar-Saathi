@@ -3,20 +3,19 @@ import axios from 'axios';
 import { withRouter } from 'react-router-dom'; 
 import DisplayList from '../sites/displaylist';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom';
-
+import './Building.css';
+import loadingGif from './loading.gif'; // Import the loading GIF
 
 function Building({ history }) {
   const location = useLocation();
   const [siteData, setSortedSiteIds] = useState([]);
   const [defaultUsername, setDefaultUsername] = useState('');
+  const [loading, setLoading] = useState(false); // State to track loading status
 
   useEffect(() => {
-   
-      const initialUsername = location.state.state.formData.username;
-      console.log(initialUsername);
-      setDefaultUsername(initialUsername);
-      fetchSites(initialUsername);
-    
+    const initialUsername = location.state.state.formData.username;
+    setDefaultUsername(initialUsername);
+    fetchSites(initialUsername);
   }, [location.state]);
 
   const handleUsernameChange = async (event) => {
@@ -28,34 +27,40 @@ function Building({ history }) {
   };
 
   const fetchSites = async (selectedUsername) => {
-    console.log(selectedUsername)
+    setLoading(true); // Start loading
     try {
       const response = await axios.post('http://localhost:4000/fetchbuildings', { username: selectedUsername });
       const data = response.data;
       setSortedSiteIds(data);
     } catch (error) {
       console.error('Error fetching sites:', error);
+    } finally {
+      setLoading(false); // Stop loading
     }
   };
 
   return (
-    <div style={{ marginTop: '2vh', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-    <h2 style={{ fontFamily: 'Arial, sans-serif', fontSize: '24px', fontWeight: 'bold', color: '#333' }}>See your buildings near you</h2>
-    <div style={{ marginTop: '2vh', display: 'flex', justifyContent: 'flex-end', width: '100%' }}>
-      <label htmlFor="usernameSelect">Select Username:</label>
-      <select id="usernameSelect" value={defaultUsername} onChange={handleUsernameChange} style={{ marginLeft: '10px' }}>
-        <option value="">Select Username</option>
-        <option value="banglore">Bangalore</option>
-        <option value="mysore">Mysore</option>
-        <option value="shivamoga">Shivamoga</option>
-        <option value="belagavi">Belagavi</option>
-      </select>
+    <div className="building-container">
+      <h2>See buildings near you</h2>
+      <div className="select-location">
+        <label htmlFor="usernameSelect">Select Location:</label>
+        <select id="usernameSelect" value={defaultUsername} onChange={handleUsernameChange}>
+          <option value="">Select City</option>
+          <option value="banglore">Bangalore</option>
+          <option value="mysore">Mysore</option>
+          <option value="shivamoga">Shivamoga</option>
+          <option value="belagavi">Belagavi</option>
+        </select>
+      </div>
+      {loading && ( // Show loading GIF if loading is true
+        <div className="loading-container">
+          <img src={loadingGif} alt="Loading..." />
+        </div>
+      )}
+      <ul className="site-list">
+        <DisplayList dataArray={siteData} />
+      </ul>
     </div>
-    <ul style={{ marginTop: '2vh', listStyleType: 'none', padding: 0 }}>
-      <DisplayList dataArray={siteData} />
-    </ul>
-  </div>
-  
   );
 }
 

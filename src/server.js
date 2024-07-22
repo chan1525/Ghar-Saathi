@@ -20,7 +20,7 @@ import('node-fetch').then(({ default: fetch }) => {
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
     async function calculateDistance(startLat, startLng, endLat, endLng) {
-      const apiKey = 'f57d7533f6c9447f831b33ce0441ce69';
+      const apiKey = '1e5e86cd1aac4b818e50fb6d64502fb2';
       const url = `https://api.geoapify.com/v1/routing?waypoints=${startLat},${startLng}|${endLat},${endLng}&mode=drive&apiKey=${apiKey}`;
       const response = await axios.get(url);
       const data = response.data;
@@ -230,7 +230,7 @@ import('node-fetch').then(({ default: fetch }) => {
     });
     
     // async function calculateDistance(startLat, startLng, endLat, endLng) {
-    //   const apiKey = 'f57d7533f6c9447f831b33ce0441ce69';
+    //   const apiKey = '1e5e86cd1aac4b818e50fb6d64502fb2';
     //   const url = `https://api.geoapify.com/v1/routing?waypoints=${startLat},${startLng}|${endLat},${endLng}&mode=drive&apiKey=${apiKey}`;
     //   const response = await axios.get(url); // Use axios instead of fetch
     //   const data = response.data;

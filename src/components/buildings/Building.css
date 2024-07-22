@@ -1,0 +1,57 @@
+/* Building.css */
+
+.building-container {
+    display : flex;
+    object-fit: fill;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Distribute boxes evenly */
+    flex-direction: column;
+  }
+  
+  .site-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .site-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Ensures vertical alignment */
+    margin-bottom: 20px; /* Adjust spacing between boxes */
+    width: 50%; /* Adjust box width as needed */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  }
+  
+  .site-image {
+    width: 50%; /* Adjust image width as needed */
+    height: 50%; /* Adjust image height as needed */
+    margin-right: 15px;
+  }
+  
+  .site-image img {
+    width: 50%; /* Ensures image fills the space */
+    height: 50%; /* Ensures image fills the space */
+    object-fit: cover; /* Maintain aspect ratio and cover space */
+  }
+  
+  .site-description {
+    flex: 1; /* Allows description to fill remaining space */
+  }
+  
+  /* Responsive layout for smaller screens */
+  @media (max-width: 50%) {
+    .site-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .site-image {
+      margin-right: 0;
+      margin-bottom: 15px;
+    }
+  }
+  
