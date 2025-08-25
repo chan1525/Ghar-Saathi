@@ -14,7 +14,7 @@ import('node-fetch').then(({ default: fetch }) => {
       user: 'postgres',
       host: 'localhost',
       database: 'gharsati',
-      password: 'Chethan@1330',
+      password: 'Chan@1330',
       port: 5000, // Corrected port for PostgreSQL
     });
     app.use(bodyParser.urlencoded({ extended: true }));
